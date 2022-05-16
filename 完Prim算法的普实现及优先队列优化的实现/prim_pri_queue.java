@@ -1,7 +1,7 @@
 import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Queue;
-
+//自定义堆的数据类型
 class edge{
     int a;
     int dist;
@@ -15,6 +15,7 @@ public class prim_pri_queue {
     static void MST_Prim_PriQueue(int[][] G,char[] V){
         Queue<edge> Q=new PriorityQueue<>(cmp);
         int[] color=new int[V.length],dist=new int[V.length],pred=new int[V.length];
+        //初始化
         for(int i=0; i<V.length;i++){
             color[i]=0;
             dist[i]=999;
@@ -24,6 +25,7 @@ public class prim_pri_queue {
         for (int i=0;i<V.length;i++){
             Q.add(new edge(i,dist[i]));
         }
+        //算法实现
         int v;
         edge mum;
         while (!Q.isEmpty()){
@@ -38,6 +40,7 @@ public class prim_pri_queue {
             }
             color[v]=1;
         }
+        //最小生成子树的输出
         int add_right=0;
         System.out.println("dist[]");
         for(int i=0; i<V.length;i++){
@@ -50,6 +53,7 @@ public class prim_pri_queue {
         System.out.print("\n最小权值"+add_right);
     }
     public static void main(String[] args){
+        //图G的输入
         char[] V={'a','b','c','d','f','g','h','i','z'};
         int[][] G={{0,4,0,0,0,0,8,0,0},
                 {4,0,8,0,0,0,1,0,0},
