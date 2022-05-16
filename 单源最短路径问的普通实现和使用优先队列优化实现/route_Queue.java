@@ -3,8 +3,9 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class route_Queue {
-
+//建堆
     static Comparator<edge> cmp= (o1, o2) -> o1.dist -o2.dist;
+    //单源最短路径
     static void Dijkstar_PriQueue(int[][] G,char[] V,int s){
         Queue<edge> Q=new PriorityQueue<>(cmp);
         int[] color=new int[V.length],dist=new int[V.length],pred=new int[V.length];
@@ -30,6 +31,7 @@ public class route_Queue {
             }
             color[v]=1;
         }
+        //print
         System.out.print("  V    ");
         for(int i=0; i<V.length;i++)
             System.out.print(V[i]+" ");
@@ -41,6 +43,7 @@ public class route_Queue {
             System.out.print(V[pred[i]]+" ");
     }
     public static void main(String[] args){
+        //图G的录入
         char[] V={'s','t','x','y','z'};
         int[][] G={{0,8,0,5,0},{0,0,1,2,0},{0,0,0,0,4},{0,3,9,0,2},{0,0,6,0,0}};
         Dijkstar_PriQueue(G,V,1);
